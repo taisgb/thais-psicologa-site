@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./assets/img/logo/logo3.png">
+    <meta name="description" content="Descubra a abordagem de terapia ideal para você através do nosso quiz personalizado.">
+    <meta name="keywords" content="quiz, terapia, abordagem psicológica, tcc, psicanálise, humanista">
+    
+    <title>Quiz - Projeto Elas Merecem</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roca+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="menu-overlay" id="menu-overlay"></div>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <img src="./assets/img/logo/logo3.png" alt="logo projeto elas merecem" class="logo-img">
+                </div>
+                <div class="hamburger" id="hamburger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <button class="close-menu" id="close-menu" aria-label="Fechar menu">&times;</button>
+                <ul class="nav-menu">
+                    <li><a href="./index.html">Início</a></li>
+                    <li><a href="./sobre.html">Sobre</a></li>
+                    <li><a href="./como-funciona.html">Como funciona</a></li>
+                    <li><a href="./servicos.html">Serviços</a></li>
+                    <li><a href="./quiz.html">Quiz</a></li>
+                    <li><a href="./faq.html">Perguntas frequentes</a></li>
+                    <li><a href="./contato.html">Contato</a></li>
+                </ul>
+            </nav>       
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-image fade-in">
+                    <img src="./assets/img/fotos/1.png" alt="Thaís - Psicóloga e fundadora do Elas Merecem" class="hero-img-quiz" loading="lazy">
+                </div>
+                <div class="hero-text fade-in">
+                    <h2>Descubra a abordagem de terapia ideal para você</h2>
+                    <h3 class="texto-borda">Encontre o caminho que mais faz sentido</h3>
+                    <p>Responda às perguntas para encontrar o caminho que mais faz sentido para o seu momento de vida. Cada abordagem tem suas particularidades e benefícios específicos.</p>
+                    <div class="hero-buttons">
+                        <a href="#quiz-container" class="btn btn-secondary">Começar quiz</a>
+                        <a href="./faq.html" class="btn btn-primary">Tire suas dúvidas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz-container" class="quiz-container">
+        <div class="container">
+            <h2>Descubra a abordagem de terapia ideal para você</h2>
+            <p class="subtitulo-quiz">Responda às perguntas para encontrar o caminho que mais faz sentido para o seu momento de vida.</p>
+            
+            <div id="progress-bar-container">
+                <div id="progress-bar"></div>
+            </div>
+        
+            <div id="quiz" class="quiz-container-content">
+                <div class="quiz-question active" data-question="0">
+                    <h3>Quando você enfrenta um problema, sua tendência é:</h3>
+                    <div class="answers-grid">
+                        <div class="answer-card" data-value="tcc">
+                            <img src="./assets/img/quiz/teste.jpg" alt="quiz image" />
+                            <p>Analisar a situação e criar um plano de ação prático.</p>
+                        </div>
+                        <div class="answer-card" data-value="psicanalise">
+                            <img src="./assets/img/quiz/teste.jpg" alt="quiz image" />
+                            <p>Refletir sobre como experiências passadas podem estar influenciando.</p>
+                        </div>
+                        <div class="answer-card" data-value="humanista">
+                            <img src="./assets/img/quiz/teste.jpg" alt="quiz image" />
+                            <p>Focar em como me sinto no momento e o que isso diz sobre mim.</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="quiz-question" data-question="1">
+                    <h3>O que você mais busca em um processo de autoconhecimento?</h3>
+                    <div class="answers-grid">
+                        <div class="answer-card" data-value="humanista">
+                            <img src="./assets/img/quiz/teste.jpg" alt="quiz image" />
+                            <p>Encontrar meu propósito e explorar todo o meu potencial.</p>
+                        </div>
+                        <div class="answer-card" data-value="tcc">
+                            <img src="./assets/img/quiz/teste.jpg" alt="quiz image" />
+                            <p>Aprender ferramentas e técnicas para lidar com a ansiedade.</p>
+                        </div>
+                        <div class="answer-card" data-value="psicanalise">
+                            <img src="./assets/img/quiz/teste.jpg" alt="quiz image" />
+                            <p>Entender os padrões inconscientes que se repetem na minha vida.</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="quiz-question" data-question="2">
+                    <h3>Uma frase que te representa bem é:</h3>
+                    <div class="answers-grid">
+                        <div class="answer-card" data-value="psicanalise">
+                            <img src="./assets/img/quiz/teste.jpg" alt="quiz image" />
+                            <p>"Tudo tem uma raiz mais profunda."</p>
+                        </div>
+                        <div class="answer-card" data-value="humanista">
+                            <img src="./assets/img/quiz/teste.jpg" alt="quiz image" />
+                            <p>"Eu sou o mestre do meu destino."</p>
+                        </div>
+                         <div class="answer-card" data-value="tcc">
+                            <img src="./assets/img/quiz/teste.jpg" alt="quiz image" />
+                            <p>"Pequenas mudanças geram grandes resultados."</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div id="results">
+                    <div class="result-card" id="tcc">
+                        <h2>Seu perfil se alinha com a Terapia Cognitivo-Comportamental (TCC)!</h2>
+                        <img src="./assets/img/quiz/teste.jpg" alt="Resultado TCC">
+                        <p>Você é uma pessoa prática e orientada para a ação, que busca entender e modificar padrões de pensamento e comportamento que geram sofrimento. A TCC lhe daria ferramentas concretas para lidar com desafios do presente de forma objetiva e focada.</p>
+                         <a href="contato.html" class="button">Agende uma conversa</a>
+                    </div>
+                    <div class="result-card" id="psicanalise">
+                        <h2>Seu perfil se alinha com a Psicanálise!</h2>
+                        <img src="./assets/img/quiz/teste.jpg" alt="Resultado Psicanálise">
+                        <p>Você tem uma alma investigativa e valoriza a profundidade. Busca entender as raízes das suas questões, explorando como o passado e o inconsciente moldam quem você é hoje. A Psicanálise seria um mergulho fascinante no seu mundo interior.</p>
+                         <a href="contato.html" class="button">Agende uma conversa</a>
+                    </div>
+                    <div class="result-card" id="humanista">
+                        <h2>Seu perfil se alinha com a Abordagem Humanista!</h2>
+                        <img src="./assets/img/quiz/teste.jpg" alt="Resultado Humanista">
+                        <p>Você valoriza o crescimento, a autenticidade e o potencial humano. Seu foco está no presente e no futuro, buscando um sentido para a vida e a autorrealização. A abordagem Humanista lhe ofereceria um espaço de acolhimento para explorar sua liberdade e suas escolhas.</p>
+                         <a href="contato.html" class="button">Agende uma conversa</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+        <div class="footer-copyright">
+            <div class="footer-logo">
+                <img src="./assets/img/logo/logo3.png" alt="logo projeto elas merecem" class="footer-logo-img" loading="lazy">
+            </div>            
+            <p>© 2025 Elas Merecem. Todos os direitos reservados.</p>
+            <p>Desenvolvido por <a href="https://www.taisgb.com.br" target="_blank" rel="noopener noreferrer">taisgb.com.br</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="quiz.js"></script>
+
+    <!-- Botão flutuante do WhatsApp -->
+    <a href="https://wa.me/5524981128603?text=Ol%C3%A1%2C%20Tha%C3%ADs!%20Encontrei%20seu%20contato%20no%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20sess%C3%B5es." class="whatsapp-sticky" target="_blank" rel="noopener" aria-label="Fale com a Thaís no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+</html> 

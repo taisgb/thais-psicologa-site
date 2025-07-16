@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./assets/img/logo/logo2.png">
+    <meta name="description" content="Um projeto de terapia online humanizada que conecta você ao cuidado que faz sentido para sua vida, sem burocracia, sem banalização do cuidado e de profissionais e com todo o carinho que só uma escuta sensível e ética podem oferecer.">
+    <meta name="keywords" content="terapia online, terapia, terapeuta, terapia online, psicologa para mulheres, psicologa online,">
+    
+    <title>Projeto Elas Merecem! - Fortalecendo mulheres na terapia</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roca+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="menu-overlay" id="menu-overlay"></div>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <img src="./assets/img/logo/logo3.png" alt="logo projeto elas merecem" class="logo-img" loading="lazy">
+                </div>
+                <div class="hamburger" id="hamburger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <button class="close-menu" id="close-menu" aria-label="Fechar menu">&times;</button>
+                <ul class="nav-menu">
+                    <li><a href="./index.html">Início</a></li>
+                    <li><a href="./sobre.html">Sobre</a></li>
+                    <li><a href="./como-funciona.html">Como funciona</a></li>
+                    <li><a href="./servicos.html">Serviços</a></li>
+                    <li><a href="./quiz.html">Quiz</a></li>
+                    <li><a href="./faq.html">Perguntas frequentes</a></li>
+                    <li><a href="./contato.html">Contato</a></li>
+                </ul>
+            </nav>       
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main>  
+    <!-- Hero Section -->
+    <section class="hero-contato">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text fade-in">
+                    <h2>Entre em contato</h2>
+                    <p>Pronta para ser cuidada com carinho? Clique abaixo para iniciar uma conversa comigo e darmos o primeiro passo juntas.</p>
+                    <div class="hero-buttons">
+                        <a href="#contato-info" class="btn btn-primary">Informações de contato</a>
+                        <a href="#formulario" class="btn btn-secondary">Enviar mensagem</a>
+                    </div>
+                </div>
+                <div class="hero-image-contato">
+                    <img src="./assets/img/outras/Imagem5.png" alt="Thaís - Psicóloga e fundadora do Elas Merecem" class="hero-img-contato" loading="lazy">
+                </div>
+            </div>            
+        </div>
+    </section>
+
+    <!-- Contato Info Section e Formulário lado a lado -->
+    <div class="contact-sections-wrapper">
+        <section class="contact-info-section" id="contato-info">
+            <div class="container">
+                <h3>Informações de Contato</h3>
+                <div class="contact-info-grid">
+                    <div class="contact-info-card fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h4>Telefone</h4>
+                        <p>(24) 98112-8603</p>
+                    </div>
+                    <div class="contact-info-card fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email</h4>
+                        <p>recrutamento@elasmerecem.com</p>
+                    </div>
+                    <div class="contact-info-card fade-in">
+                        <div class="contact-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <h4>Instagram</h4>
+                        <a href="https://www.instagram.com/psicologiademulheres/" target="_blank" rel="noopener noreferrer">@psicologiademulheres</a>
+                    </div>
+                    <div class="contact-info-card fade-in">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <h4>LinkedIn</h4>
+                        <a href="https://www.linkedin.com/in/tha%C3%ADs-carvalho-79b184166" target="_blank" rel="noopener noreferrer">Psicóloga Thaís Carvalho</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-form-section" id="formulario">
+            <div class="container">
+                <h3>Envie sua mensagem</h3>
+                <div class="contact-form-content">
+                    <div class="contact-form fade-in">
+                        <form action="#" method="post">
+                            <div class="form-group">
+                                <label for="name">Nome completo *</label>
+                                <input type="text" id="name" name="name" placeholder="Seu nome completo" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telefone</label>
+                                <input type="tel" id="phone" name="phone" placeholder="(00) 00000-0000">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Assunto *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Selecione um assunto</option>
+                                    <option value="agendamento">Agendamento de consulta</option>
+                                    <option value="duvidas">Dúvidas sobre serviços</option>
+                                    <option value="orcamento">Orçamento</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Mensagem *</label>
+                                <textarea id="message" name="message" placeholder="Conte-nos um pouco sobre você e como podemos ajudar..." rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+        <div class="footer-copyright">
+            <div class="footer-logo">
+                <img src="./assets/img/logo/logo3.png" alt="logo projeto elas merecem" class="footer-logo-img" loading="lazy">
+            </div>
+            
+            <p>© 2025 Elas Merecem. Todos os direitos reservados.</p>
+            <p>Desenvolvido por <a href="https://www.taisgb.com.br" target="_blank" rel="noopener noreferrer">taisgb.com.br</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- Botão flutuante do WhatsApp -->
+    <a href="https://wa.me/5524981128603?text=Ol%C3%A1%2C%20Tha%C3%ADs!%20Encontrei%20seu%20contato%20no%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20sess%C3%B5es." class="whatsapp-sticky" target="_blank" rel="noopener" aria-label="Fale com a Thaís no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html> 
