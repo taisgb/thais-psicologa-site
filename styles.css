@@ -1825,71 +1825,79 @@ body {
 
 @media (max-width: 800px) {
     .hamburger {
-        display: flex !important;
+      display: flex !important;
+      z-index: 9999;
     }
-
+  
     .nav-menu {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(222, 153, 159, 0.95);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 24px;
-        padding-top: 80px;
-        z-index: 9998;
-        transition: all 0.3s ease-in-out;
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background: rgba(222, 153, 159, 0.95);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-top: 80px;
+      gap: 24px;
+      z-index: 9998;
+      overflow-y: auto;
     }
-
+  
     .nav-menu.active {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center;
-        justify-content: center;
-        gap: 20px;
-        padding: 80px 20px;
-        background: rgba(222, 153, 159, 0.95); /* mesmo fundo */
-        height: 100vh;
-        width: 100vw;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 9998;
-      }
-
-      .nav-menu li {
-        width: 100%;
-        text-align: center;
-      }
-      
-      .nav-menu a {
-        color: white !important;
-        font-size: 1.2rem;
-        text-decoration: none;
-        padding: 10px 20px;
-        display: block;
-      }
-
+      display: flex !important;
+    }
+  
+    .nav-menu li {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .nav-menu a {
+      color: white !important;
+      font-size: 1.3rem;
+      font-weight: 600;
+      padding: 12px 20px;
+      display: block;
+      width: 100%;
+    }
+  
     .close-menu {
-        display: none;
-        position: absolute;
-        top: 20px;
-        right: 30px;
-        z-index: 9999;
-        background: transparent;
-        border: none;
+      display: none;
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      z-index: 9999;
+      background: transparent;
+      border: none;
+      font-size: 2.5rem;
+      color: white;
+      cursor: pointer;
     }
-
+  
     .close-menu.active {
-        display: block;
-        z-index: 9999;
+      display: block;
     }
-
-    .header {
-        z-index: 1300;
+  
+    .menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.2);
+      z-index: 9997;
     }
-}
+  
+    .menu-overlay.active {
+      display: block;
+    }
+  
+    .header::before {
+      display: none !important;
+    }
+  }
+  
