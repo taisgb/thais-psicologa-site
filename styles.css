@@ -1762,112 +1762,226 @@ body {
   }
 }
 
-/* ====== MENU HAMBURGUER E CLOSE RESPONSIVO (FINAL, ÚNICO) ====== */
-
+/* ===== MENU DESKTOP ===== */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+  }
+  
+  .nav-menu a {
+    color: #ffff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.3s;
+    position: relative;
+  }
+  
+  .nav-menu a:hover {
+    opacity: 0.8;
+    color: #ffff;
+  }
+  
+  .nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ffff;
+    transition: width 0.3s;
+  }
+  
+  .nav-menu a:hover::after {
+    width: 100%;
+  }
+  
+  .nav-menu a.active {
+    color: var(--cor-acento) !important;
+    font-weight: 700;
+  }
+  
+  .nav-menu a.active::after {
+    width: 100%;
+    background: var(--cor-acento);
+  }
+  
+  /* ===== MENU MOBILE - VERSÃO OTIMIZADA ===== */
 .hamburger {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    width: 32px;
-    height: 32px;
+    width: 40px; /* Aumentado para melhor toque */
+    height: 40px; /* Aumentado para melhor toque */
     justify-content: center;
     align-items: center;
-    z-index: 9999;
+    z-index: 10010;
     background: transparent;
-}
-
-.hamburger span {
-    height: 4px;
-    width: 100%;
+    position: relative;
+    padding: 8px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .hamburger span {
+    height: 3px;
+    width: 28px; /* Largura consistente */
     background: white;
-    margin: 4px 0;
-    border-radius: 2px;
+    margin: 3px 0; /* Espaçamento ajustado */
+    border-radius: 3px;
     display: block;
-    transition: all 0.3s;
-}
-
-.hamburger:hover span {
-    background: var(--cor-acento);
-    text-decoration: underline;
-}
-
-.close-menu {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+    pointer-events: none;
+  }
+  
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+  }
+  
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+  }
+  
+  .close-menu {
     display: none;
     position: fixed;
-    top: 20px;
-    right: 30px;
-    z-index: 1400;
+    top: 25px;
+    right: 25px;
+    z-index: 10020;
     background: transparent;
     border: none;
     font-size: 2.5rem;
     color: #fff;
     cursor: pointer;
-}
-
-.close-menu.active {
-    display: block;
-}
-
-.menu-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 9997;
-    pointer-events: none;
-}
-
-.menu-overlay.active {
-    display: block;
-    pointer-events: auto;
-}
-
-@media (max-width: 800px) {
-  .hamburger {
-    display: flex !important;
-    z-index: 9999;
+    transition: transform 0.3s;
+    -webkit-tap-highlight-color: transparent;
+    padding: 10px;
   }
-
-  .nav-menu {
+  
+  .close-menu:hover {
+    transform: scale(1.1);
+  }
+  
+  .menu-overlay {
     display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 10005;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .menu-overlay.active {
+    opacity: 1;
+  }
+  
+  /* ===== MENU ATIVO - MELHORIAS PARA iOS ===== */
+  .nav-menu.active {
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
     width: 100vw;
-    background: rgba(222, 153, 159, 0.95);
+    background: rgba(222, 153, 159, 0.98);
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding-top: 80px;
-    gap: 24px;
-    z-index: 9999;
+    justify-content: flex-start; /* Melhor posicionamento */
+    padding-top: max(20px, env(safe-area-inset-top));
+    gap: 15px;
+    z-index: 10015;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    padding: calc(env(safe-area-inset-top) + 20px) 
+             env(safe-area-inset-right) 
+             env(safe-area-inset-bottom) 
+             env(safe-area-inset-left);
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
-
-  .nav-menu.active {
-    display: flex !important;
+  
+  .nav-menu.active.show {
+    transform: translateX(0);
   }
-
-  .nav-menu li {
-    width: 100%;
-    text-align: center;
-  }
-
-  .nav-menu a {
+  
+  .nav-menu.active a {
     color: white !important;
     font-size: 1.3rem;
     font-weight: 600;
-    padding: 12px 20px;
+    padding: 15px 25px; /* Área de toque maior */
     display: block;
     width: 100%;
-    pointer-events: auto;
+    text-align: center;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin: 5px 0;
   }
-
-  .header::before {
-    display: none !important;
+  
+  .nav-menu.active a:hover {
+    background: rgba(255, 255, 255, 0.15);
   }
-}
+  
+  .nav-menu.active a.active {
+    color: var(--cor-acento) !important;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+  }
+  
+  /* ===== MEDIA QUERIES ===== */
+  @media (max-width: 800px) {
+    .hamburger {
+      display: flex;
+    }
+  
+    .nav-menu {
+      display: none;
+    }
+  
+    .close-menu.active {
+      display: block;
+    }
+  
+    .menu-overlay.active {
+      display: block;
+    }
+  }
+  
+  /* ===== CORREÇÕES ESPECÍFICAS PARA iOS ===== */
+  @supports (-webkit-touch-callout: none) {
+    .nav-menu.active {
+      padding-left: max(20px, env(safe-area-inset-left));
+      padding-right: max(20px, env(safe-area-inset-right));
+    }
+    
+    /* Correção para Safari 15+ */
+    @media screen and (max-device-width: 1024px) {
+      .nav-menu.active {
+        position: absolute;
+      }
+    }
+  }
+  
+  /* iPhone 15 Pro/Plus específico */
+  @media (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3),
+         (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
+    .nav-menu.active {
+      padding-top: calc(env(safe-area-inset-top) + 25px);
+    }
+    
+    .close-menu {
+      top: calc(env(safe-area-inset-top) + 10px);
+    }
+  }
