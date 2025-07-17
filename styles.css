@@ -1847,13 +1847,32 @@ body {
 
     .nav-menu.active {
         display: flex !important;
-    }
+        flex-direction: column !important;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        padding: 80px 20px;
+        background: rgba(222, 153, 159, 0.95); /* mesmo fundo */
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9998;
+      }
 
-    .nav-menu li {
-        margin: 0;
-        padding: 10px 0;
+      .nav-menu li {
+        width: 100%;
         text-align: center;
-    }
+      }
+      
+      .nav-menu a {
+        color: white !important;
+        font-size: 1.2rem;
+        text-decoration: none;
+        padding: 10px 20px;
+        display: block;
+      }
 
     .close-menu {
         display: none;
@@ -1867,6 +1886,7 @@ body {
 
     .close-menu.active {
         display: block;
+        z-index: 9999;
     }
 
     .header {
