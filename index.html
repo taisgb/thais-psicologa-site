@@ -18,30 +18,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="menu-overlay" id="menu-overlay"></div>
+    <!-- <div class="menu-overlay" id="menu-overlay"></div> -->
     <!-- Header -->
     <header class="header">
         <div class="container">
-            <nav class="nav">
+            <div class="nav">
                 <div class="logo">
                     <img src="./assets/img/logo/logo3.png" alt="logo projeto elas merecem" class="logo-img" loading="lazy">
                 </div>
-                <div class="hamburger" id="hamburger-menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <button class="close-menu" id="close-menu" aria-label="Fechar menu">&times;</button>
-                <ul class="nav-menu">
-                    <li><a href="./index.html">Início</a></li>
-                    <li><a href="./sobre.html">Sobre</a></li>
-                    <li><a href="./como-funciona.html">Como funciona</a></li>
-                    <li><a href="./servicos.html">Serviços</a></li>
-                    <li><a href="./quiz.html">Quiz</a></li>
-                    <li><a href="./faq.html">Perguntas frequentes</a></li>
-                    <li><a href="./contato.html">Contato</a></li>
-                </ul>
-            </nav>       
+                
+                <!-- Botão hambúrguer acessível -->
+                <button class="hamburger" id="hamburger-menu" aria-expanded="false" aria-label="Menu" aria-controls="nav-menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                
+                <!-- Menu de navegação -->
+                <nav class="nav-menu" id="nav-menu" aria-hidden="true">
+                    <ul>
+                        <li><a href="./index.html">Início</a></li>
+                        <li><a href="./sobre.html">Sobre</a></li>
+                        <li><a href="./como-funciona.html">Como funciona</a></li>
+                        <li><a href="./servicos.html">Serviços</a></li>
+                        <li><a href="./quiz.html">Quiz</a></li>
+                        <li><a href="./faq.html">Perguntas frequentes</a></li>
+                        <li><a href="./contato.html">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
@@ -173,7 +178,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 
     <!-- Botão flutuante do WhatsApp -->
     <a href="https://wa.me/5524981128603?text=Ol%C3%A1%2C%20Tha%C3%ADs!%20Encontrei%20seu%20contato%20no%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20sess%C3%B5es." class="whatsapp-sticky" target="_blank" rel="noopener" aria-label="Fale com a Thaís no WhatsApp">

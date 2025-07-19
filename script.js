@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     // =============================================
     // ANIMAÇÕES DE SCROLL
     // =============================================
@@ -14,81 +14,41 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
     // Inicializa animações
-    window.addEventListener('load', () => {
-        handleScrollAnimations();
-        window.addEventListener('scroll', handleScrollAnimations, { passive: true });
-    });
+    handleScrollAnimations();
+    window.addEventListener('scroll', handleScrollAnimations, { passive: true });
 
     // =============================================
-    // MENU MOBILE - VERSÃO OTIMIZADA PARA iOS
+    // MENU MOBILE - ÚNICA IMPLEMENTAÇÃO
     // =============================================
     const hamburger = document.getElementById('hamburger-menu');
-    const navMenu = document.querySelector('.nav-menu');
-    const closeMenu = document.getElementById('close-menu');
-    const menuOverlay = document.getElementById('menu-overlay');
+    const navMenu = document.getElementById('nav-menu');
     
-    // Função principal do menu
-    function toggleMobileMenu() {
-        const isActive = navMenu.classList.contains('active');
-        
-        // Forçar reflow para evitar bugs visuais no iOS
-        void navMenu.offsetWidth;
-        
-        // Alternar estados
-        navMenu.classList.toggle('active');
-        menuOverlay.classList.toggle('active');
-        
-        // Gerenciamento de scroll para iOS moderno
-        if (!isActive) {
-            document.body.style.overflow = 'hidden';
-            document.documentElement.style.overflow = 'hidden';
-            document.body.style.position = 'fixed';
-            document.body.style.width = '100%';
-        } else {
-            document.body.style.overflow = '';
-            document.documentElement.style.overflow = '';
-            document.body.style.position = '';
-            document.body.style.width = '';
-        }
-        
-        // iOS 16+ fix - evitar double tap
-        if (!isActive) {
-            setTimeout(() => {
-                navMenu.style.transform = 'translate3d(0,0,0)';
-            }, 10);
-        }
-    }
-    
-    // Configuração dos event listeners
     if (hamburger && navMenu) {
-        // Hamburguer
-        hamburger.addEventListener('click', (e) => {
-            e.preventDefault();
-            toggleMobileMenu();
-        }, { passive: false });
+        // Função para alternar o menu
+        const toggleMenu = () => {
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !isExpanded);
+            navMenu.setAttribute('aria-hidden', isExpanded);
+            document.body.classList.toggle('menu-open', !isExpanded);
+        };
+
+        // Evento de clique no hambúrguer
+        hamburger.addEventListener('click', toggleMenu);
         
-        // Botão fechar
-        if (closeMenu) {
-            closeMenu.addEventListener('click', (e) => {
-                e.preventDefault();
-                toggleMobileMenu();
-            }, { passive: false });
+        // Fechar menu ao clicar nos links (apenas em mobile)
+        if (window.innerWidth <= 800) {
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    if (hamburger.getAttribute('aria-expanded') === 'true') {
+                        e.preventDefault();
+                        toggleMenu();
+                        setTimeout(() => {
+                            window.location.href = link.href;
+                        }, 400);
+                    }
+                });
+            });
         }
-        
-        // Overlay e links
-        menuOverlay.addEventListener('click', toggleMobileMenu, { passive: false });
-        
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                if (navMenu.classList.contains('active')) {
-                    e.preventDefault();
-                    toggleMobileMenu();
-                    setTimeout(() => {
-                        window.location.href = link.href;
-                    }, 300);
-                }
-            }, { passive: false });
-        });
     }
 
     // =============================================
@@ -109,46 +69,37 @@ document.addEventListener('DOMContentLoaded', function () {
     // =============================================
     const form = document.querySelector('.contact-form form');
     if (form) {
-        form.addEventListener('submit', function (e) {
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Coletar dados do formulário
-            const formData = {
-                name: form.querySelector('[name="name"]').value.trim(),
-                email: form.querySelector('[name="email"]').value.trim(),
-                phone: form.querySelector('[name="phone"]').value.trim(),
-                subject: form.querySelector('[name="subject"]').value.trim(),
-                message: form.querySelector('[name="message"]').value.trim()
-            };
+            const getValue = (selector) => 
+                form.querySelector(selector)?.value.trim() || '';
             
-            // Construir mensagem formatada
             const message = `Olá! Mensagem do site Elas Merecem:%0A%0A` +
-                           `*Nome:* ${formData.name}%0A` +
-                           `*E-mail:* ${formData.email}%0A` +
-                           (formData.phone ? `*Telefone:* ${formData.phone}%0A` : '') +
-                           `*Assunto:* ${formData.subject}%0A` +
-                           `*Mensagem:* ${formData.message}`;
+                           `*Nome:* ${getValue('[name="name"]')}%0A` +
+                           `*E-mail:* ${getValue('[name="email"]')}%0A` +
+                           `*Telefone:* ${getValue('[name="phone"]')}%0A` +
+                           `*Assunto:* ${getValue('[name="subject"]')}%0A` +
+                           `*Mensagem:* ${getValue('[name="message"]')}`;
             
-            // Abrir WhatsApp
             window.open(`https://wa.me/5524981128603?text=${encodeURIComponent(message)}`, '_blank');
         });
     }
 
     // =============================================
-    // DETECÇÃO DE iOS PARA AJUSTES ESPECÍFICOS
+    // AJUSTES PARA iOS
     // =============================================
-    function isIOS() {
-        return /iPad|iPhone|iPod/.test(navigator.userAgent) || 
-               (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-    }
-    
-    if (isIOS()) {
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent) || 
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
         document.documentElement.classList.add('ios-device');
         
-        // Correção adicional para viewport em iOS
         const viewportMeta = document.querySelector('meta[name="viewport"]');
         if (viewportMeta) {
-            viewportMeta.content = viewportMeta.content + ', shrink-to-fit=no';
+            viewportMeta.content += ', shrink-to-fit=no';
+        }
+        
+        if (navMenu) {
+            navMenu.style.webkitBackdropFilter = 'blur(5px)';
         }
     }
 });
